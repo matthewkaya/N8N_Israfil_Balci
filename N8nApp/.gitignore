@@ -1,0 +1,12 @@
+# Ignore environment variables file with sensitive data
+.env
+# But allow the sample template to be committed
+!.env.sample
+
+# Python related
+__pycache__/
+*.py[cod]
+*$py.class
+
+# JSON output files from the application
+workflow_*.json
