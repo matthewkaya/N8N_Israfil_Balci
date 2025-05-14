@@ -1,0 +1,75 @@
+{
+  "createdAt": "2025-05-13T15:28:17.460Z",
+  "updatedAt": "2025-05-13T15:28:17.460Z",
+  "id": "dJx3uW6CAlL9GmC2",
+  "name": "hello oakville",
+  "active": false,
+  "nodes": [
+    {
+      "id": "0f5532f9-36ba-4bef-86c7-30d607400b15",
+      "name": "Start",
+      "type": "n8n-nodes-base.start",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {}
+    }
+  ],
+  "connections": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {},
+  "meta": null,
+  "versionId": "d6073ab8-db10-4a1a-b813-53e35ad59c89",
+  "triggerCount": 0,
+  "shared": [
+    {
+      "createdAt": "2025-05-13T15:28:17.460Z",
+      "updatedAt": "2025-05-13T15:28:17.460Z",
+      "role": "workflow:owner",
+      "workflowId": "dJx3uW6CAlL9GmC2",
+      "projectId": "5VilulvyEvuQsdRs",
+      "project": {
+        "createdAt": "2025-05-09T00:23:13.762Z",
+        "updatedAt": "2025-05-09T00:56:17.396Z",
+        "id": "5VilulvyEvuQsdRs",
+        "name": "Muharrem Kaya <info@digisfer.com>",
+        "type": "personal",
+        "icon": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-05-09T00:23:13.762Z",
+            "updatedAt": "2025-05-09T00:23:13.762Z",
+            "role": "project:personalOwner",
+            "userId": "1196c1d9-3eb7-44f4-9207-65e4e525e62e",
+            "projectId": "5VilulvyEvuQsdRs",
+            "user": {
+              "createdAt": "2025-05-09T00:23:11.183Z",
+              "updatedAt": "2025-05-09T01:22:02.702Z",
+              "id": "1196c1d9-3eb7-44f4-9207-65e4e525e62e",
+              "email": "info@digisfer.com",
+              "firstName": "Muharrem",
+              "lastName": "Kaya",
+              "personalizationAnswers": null,
+              "settings": {
+                "userActivated": true,
+                "easyAIWorkflowOnboarded": true,
+                "firstSuccessfulWorkflowId": "vTN9y2dLXqTiDfPT",
+                "userActivatedAt": 1746753685969
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "isPending": false,
+              "isOwner": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "tags": []
+}
