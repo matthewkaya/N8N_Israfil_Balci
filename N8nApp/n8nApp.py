@@ -11,7 +11,8 @@ from functions.create_workflow import create_workflow
 from functions.update_workflow import update_workflow
 from functions.delete_workflow import delete_workflow
 from functions.activate_workflow import activate_workflow, deactivate_workflow
-from functions.workflow_tags import get_workflow_tags, assign_tag, remove_tags
+from functions.upload_workflow import upload_all_workflows, upload_selected_workflow
+from functions.compare_workflows import compare_workflows
 
 def main():
     """Ana uygulama döngüsü"""
@@ -36,11 +37,11 @@ def main():
             elif choice == "7":
                 deactivate_workflow()
             elif choice == "8":
-                get_workflow_tags()
+                upload_all_workflows()
             elif choice == "9":
-                assign_tag()
+                upload_selected_workflow()
             elif choice == "10":
-                remove_tags()
+                compare_workflows()
             elif choice == "0":
                 print("\nN8N API CLI'dan çıkılıyor. Hoşça kalın!")
                 break

@@ -1,0 +1,139 @@
+{
+  "createdAt": "2025-05-14T02:00:50.420Z",
+  "updatedAt": "2025-05-14T02:17:42.254Z",
+  "id": "UkQYuQ6EjsUtCAYf",
+  "name": "Basit Nodes Workflow",
+  "active": false,
+  "nodes": [
+    {
+      "parameters": {
+        "path": "20a143d7-fb9a-4d00-a333-b293404cd4dd",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        240,
+        -60
+      ],
+      "id": "59fc390f-de61-4785-90ca-66dd8fec901f",
+      "name": "Webhook",
+      "webhookId": "20a143d7-fb9a-4d00-a333-b293404cd4dd"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        480,
+        -60
+      ],
+      "id": "9476c093-bdaa-4bad-bfd6-4ddf52c70dc8",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        840,
+        -60
+      ],
+      "id": "65918847-3c78-4136-83f0-4229cf39a765",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1060,
+        -60
+      ],
+      "id": "babf8651-dfb6-4437-bb14-8389e2410625",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        -60
+      ],
+      "id": "0ba032c7-9705-43d6-9212-1553a7dd7303"
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {},
+  "meta": null,
+  "pinData": {},
+  "versionId": "3518b13a-636f-42f1-974f-75d537edf559",
+  "triggerCount": 0,
+  "tags": []
+}

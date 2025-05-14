@@ -15,24 +15,43 @@ def create_workflow():
         print("Workflow ismi boş olamaz. İşlem iptal edildi.")
         return
     
-    # Minimal workflow için şablon
+    # N8N API beklediği formatta workflow şablonu
     workflow_template = {
         "name": workflow_name,
-        "nodes": [],
+        "nodes": [
+            {
+                "id": "0f5532f9-36ba-4bef-86c7-30d607400b15",
+                "name": "Start",
+                "type": "n8n-nodes-base.start",
+                "typeVersion": 1,
+                "position": [0, 0],
+                "parameters": {}
+            }
+        ],
         "connections": {},
         "settings": {
             "executionOrder": "v1"
         },
-        "active": False
+        "staticData": {}
     }
     
     try:
         print(f"\n'{workflow_name}' isimli yeni workflow oluşturuluyor...")
+        
+        # JSON formatında veri gönder (data yerine json parametresi kullan)
         response = requests.post(
             f"{N8N_URL}/api/v1/workflows",
             headers=headers_with_content_type,
-            data=json.dumps(workflow_template)
+            json=workflow_template  # data=json.dumps yerine doğrudan json kullan
         )
+        
+        # Hata durumunda detaylı bilgi göster
+        if response.status_code != 200 and response.status_code != 201:
+            print(f"Hata Kodu: {response.status_code}")
+            print(f"Hata Detayı: {response.text}")
+            print(f"Gönderilen veri: {json.dumps(workflow_template, indent=2)}")
+            print(f"Headers: {headers_with_content_type}")
+        
         response.raise_for_status()
         
         new_workflow = response.json()

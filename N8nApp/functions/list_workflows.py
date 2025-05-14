@@ -75,12 +75,20 @@ def list_workflows():
                                 print(f"'{filename}' dosyası atlandı.")
                                 continue
                             
+                            # Versionlama seçeneği sor
+                            while True:
+                                version = input(f"Mevcut dosyayı versiyonlamak ister misiniz? (e/h): ")
+                                if version.lower() in ['e', 'h']:
+                                    break
+                                print("Geçersiz giriş! Lütfen 'e' veya 'h' girin.")
+                            
                             # Git add komutunu çalıştır
-                            try:
-                                subprocess.run(['git', 'add', '.'], check=True)
-                                print("Mevcut dosyalar git staging'e eklendi.")
-                            except subprocess.SubprocessError as e:
-                                print(f"Git komutu çalıştırılırken hata oluştu: {str(e)}")
+                            if version.lower() == 'e':
+                                try:
+                                    subprocess.run(['git', 'add', filename], check=True)
+                                    print(f"Mevcut dosya git staging'e eklendi: {filename}")
+                                except subprocess.SubprocessError as e:
+                                    print(f"Git komutu çalıştırılırken hata oluştu: {str(e)}")
                         
                         # Tam workflow detaylarını kullan (zaten elimizdeki JSON'da tüm detaylar var)
                         try:

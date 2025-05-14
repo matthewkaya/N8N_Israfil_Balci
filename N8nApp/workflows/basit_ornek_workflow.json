@@ -1,0 +1,126 @@
+{
+  "createdAt": "2025-05-14T10:00:00.000Z",
+  "updatedAt": "2025-05-14T10:00:00.000Z",
+  "name": "Basit \u00d6rnek Workflow",
+  "active": false,
+  "nodes": [
+    {
+      "id": "e2a4d6e2-aa8a-4c5f-b8d9-94158c1f38d3",
+      "name": "Start",
+      "type": "n8n-nodes-base.Start",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ]
+    },
+    {
+      "id": "cd8f5a3b-8d17-4496-a64a-283e27c6e737",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.HttpRequest",
+      "typeVersion": 1,
+      "position": [
+        450,
+        300
+      ],
+      "parameters": {
+        "url": "https://jsonplaceholder.typicode.com/todos/1",
+        "authentication": "none",
+        "method": "GET",
+        "options": {}
+      }
+    },
+    {
+      "id": "87639101-f19b-4f4e-a1df-ad76cfe23a18",
+      "name": "Set",
+      "type": "n8n-nodes-base.Set",
+      "typeVersion": 2,
+      "position": [
+        650,
+        300
+      ],
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "mesaj",
+              "value": "Merhaba N8N! \u0130\u015fte API'den gelen veri:"
+            },
+            {
+              "name": "baslik",
+              "value": "=={{$json[\"title\"]}}"
+            },
+            {
+              "name": "tamamlandi",
+              "value": "=={{$json[\"completed\"]}}"
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "94f04ede-5835-4a56-a6b5-1bb4ec9769c8",
+      "name": "Telegram",
+      "type": "n8n-nodes-base.Telegram",
+      "typeVersion": 1,
+      "position": [
+        850,
+        300
+      ],
+      "parameters": {
+        "chatId": "123456789",
+        "text": "=={{$node[\"Set\"].json[\"mesaj\"]}}\n\nBa\u015fl\u0131k: {{$node[\"Set\"].json[\"baslik\"]}}\nTamamland\u0131: {{$node[\"Set\"].json[\"tamamlandi\"]}}",
+        "additionalFields": {}
+      }
+    }
+  ],
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": false,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "staticData": null,
+  "pinData": {},
+  "versionId": "83e94e5d-c367-4f10-8cfd-8b34f6367ab2",
+  "triggerCount": 0,
+  "tags": [],
+  "id": "Sa01LwK6hWTzIvoF"
+}

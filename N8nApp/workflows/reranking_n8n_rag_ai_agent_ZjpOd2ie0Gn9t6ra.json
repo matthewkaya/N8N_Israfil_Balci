@@ -1294,51 +1294,5 @@
   "meta": null,
   "versionId": "291a3609-99ce-4c31-ba59-85b9ccaafaff",
   "triggerCount": 0,
-  "shared": [
-    {
-      "createdAt": "2025-05-12T16:36:32.884Z",
-      "updatedAt": "2025-05-12T16:36:32.884Z",
-      "role": "workflow:owner",
-      "workflowId": "ZjpOd2ie0Gn9t6ra",
-      "projectId": "5VilulvyEvuQsdRs",
-      "project": {
-        "createdAt": "2025-05-09T00:23:13.762Z",
-        "updatedAt": "2025-05-09T00:56:17.396Z",
-        "id": "5VilulvyEvuQsdRs",
-        "name": "Muharrem Kaya <info@digisfer.com>",
-        "type": "personal",
-        "icon": null,
-        "projectRelations": [
-          {
-            "createdAt": "2025-05-09T00:23:13.762Z",
-            "updatedAt": "2025-05-09T00:23:13.762Z",
-            "role": "project:personalOwner",
-            "userId": "1196c1d9-3eb7-44f4-9207-65e4e525e62e",
-            "projectId": "5VilulvyEvuQsdRs",
-            "user": {
-              "createdAt": "2025-05-09T00:23:11.183Z",
-              "updatedAt": "2025-05-09T01:22:02.702Z",
-              "id": "1196c1d9-3eb7-44f4-9207-65e4e525e62e",
-              "email": "info@digisfer.com",
-              "firstName": "Muharrem",
-              "lastName": "Kaya",
-              "personalizationAnswers": null,
-              "settings": {
-                "userActivated": true,
-                "easyAIWorkflowOnboarded": true,
-                "firstSuccessfulWorkflowId": "vTN9y2dLXqTiDfPT",
-                "userActivatedAt": 1746753685969
-              },
-              "role": "global:owner",
-              "disabled": false,
-              "mfaEnabled": false,
-              "isPending": false,
-              "isOwner": true
-            }
-          }
-        ]
-      }
-    }
-  ],
   "tags": []
 }

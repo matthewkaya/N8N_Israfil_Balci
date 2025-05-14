@@ -5,16 +5,35 @@ Workflow silme işlevleri
 
 import requests
 from functions.utils import N8N_URL, headers
-from functions.list_workflows import list_workflows
 
 def delete_workflow():
     """ID ile workflow sil"""
-    workflows = list_workflows()
-    
-    if not workflows:
-        return
-    
+    # Doğrudan API'den workflow listesini al
     try:
+        print("\nWorkflow'lar getiriliyor...")
+        response = requests.get(
+            f"{N8N_URL}/api/v1/workflows",
+            headers=headers
+        )
+        response.raise_for_status()
+        
+        data = response.json()
+        # Ensure we're getting the data in the right format - API may return data in a nested structure
+        workflows = data if isinstance(data, list) else data.get("data", [])
+        
+        if not workflows:
+            print("Hiç workflow bulunamadı.")
+            return
+        
+        print(f"\nToplam {len(workflows)} workflow bulundu:\n")
+        
+        for i, workflow in enumerate(workflows, 1):
+            if isinstance(workflow, dict):
+                status = "Aktif" if workflow.get("active", False) else "Pasif"
+                print(f"{i}. [{status}] ID: {workflow.get('id')} - İsim: {workflow.get('name')}")
+            else:
+                print(f"{i}. [Bilinmiyor] - {workflow}")
+    
         choice = int(input("\nSILMEK istediğiniz workflow'un numarasını girin (0 iptal): "))
         if choice == 0:
             return
@@ -23,9 +42,19 @@ def delete_workflow():
             print("Geçersiz seçim.")
             return
         
-        workflow_id = workflows[choice-1]["id"]
-        workflow_name = workflows[choice-1]["name"]
+        selected_workflow = workflows[choice-1]
         
+        if not isinstance(selected_workflow, dict):
+            print("Seçilen workflow formatı geçersiz.")
+            return
+            
+        workflow_id = selected_workflow.get("id")
+        workflow_name = selected_workflow.get("name", "İsimsiz")
+        
+        if not workflow_id:
+            print("Seçilen workflow'un ID'si bulunamadı.")
+            return
+            
         confirm = input(f"\n⚠️ UYARI: '{workflow_name}' (ID: {workflow_id}) isimli workflow'u SILMEK üzeresiniz.\nBu işlem geri alınamaz. Onaylamak için 'SIL' yazın: ")
         
         if confirm != "SIL":

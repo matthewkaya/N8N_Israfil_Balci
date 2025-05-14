@@ -1,71 +1,40 @@
 {
-  "createdAt": "2025-05-13T14:07:35.302Z",
-  "updatedAt": "2025-05-13T14:07:35.302Z",
-  "id": "NkOCe67PJ3wupvVp",
-  "name": "merhaba",
+  "createdAt": "2025-05-13T14:15:55.639Z",
+  "updatedAt": "2025-05-13T14:47:46.736Z",
+  "id": "Yll1qVxl0pcwoRK9",
+  "name": "MERHABA YENIDEN",
   "active": false,
   "nodes": [
     {
-      "id": "0f5532f9-36ba-4bef-86c7-30d607400b15",
-      "name": "Jira",
-      "webhookId": "string",
-      "disabled": true,
-      "notesInFlow": true,
-      "notes": "string",
-      "type": "n8n-nodes-base.Jira",
-      "typeVersion": 1,
-      "executeOnce": false,
-      "alwaysOutputData": false,
-      "retryOnFail": false,
-      "maxTries": 0,
-      "waitBetweenTries": 0,
-      "onError": "stopWorkflow",
-      "position": [
-        -100,
-        80
-      ],
       "parameters": {
-        "additionalProperties": {}
+        "path": "d57f2fd8-6568-4caf-894c-a6c281545c07",
+        "options": {}
       },
-      "credentials": {
-        "jiraSoftwareCloudApi": {
-          "id": "35",
-          "name": "jiraApi"
-        }
-      }
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "975228af-c68b-45e0-ae66-b9edbd43ccd9",
+      "name": "Webhook",
+      "webhookId": "d57f2fd8-6568-4caf-894c-a6c281545c07"
     }
   ],
-  "connections": {
-    "main": [
-      {
-        "node": "Jira",
-        "type": "main",
-        "index": 0
-      }
-    ]
-  },
+  "connections": {},
   "settings": {
-    "saveExecutionProgress": true,
-    "saveManualExecutions": true,
-    "saveDataErrorExecution": "all",
-    "saveDataSuccessExecution": "all",
-    "executionTimeout": 3600,
-    "errorWorkflow": "VzqKEW0ShTXA5vPj",
-    "timezone": "America/New_York",
     "executionOrder": "v1"
   },
-  "staticData": {
-    "lastId": 1
-  },
+  "staticData": {},
   "meta": null,
-  "versionId": "42b42c7f-8734-43d3-a5b0-00e17248b2fc",
-  "triggerCount": 0,
+  "versionId": "7d231353-6a9f-4327-8680-2b5e871c6d8e",
+  "triggerCount": 1,
   "shared": [
     {
-      "createdAt": "2025-05-13T14:07:35.302Z",
-      "updatedAt": "2025-05-13T14:07:35.302Z",
+      "createdAt": "2025-05-13T14:15:55.639Z",
+      "updatedAt": "2025-05-13T14:15:55.639Z",
       "role": "workflow:owner",
-      "workflowId": "NkOCe67PJ3wupvVp",
+      "workflowId": "Yll1qVxl0pcwoRK9",
       "projectId": "5VilulvyEvuQsdRs",
       "project": {
         "createdAt": "2025-05-09T00:23:13.762Z",
@@ -106,5 +75,18 @@
       }
     }
   ],
-  "tags": []
+  "tags": [
+    {
+      "createdAt": "2025-05-13T14:47:31.577Z",
+      "updatedAt": "2025-05-13T14:47:31.577Z",
+      "id": "bod6knSU2DOmIHH4",
+      "name": "merhaba"
+    },
+    {
+      "createdAt": "2025-05-13T14:47:45.547Z",
+      "updatedAt": "2025-05-13T14:47:45.547Z",
+      "id": "wbK6ue4bsmhLchdd",
+      "name": "naber"
+    }
+  ]
 }
